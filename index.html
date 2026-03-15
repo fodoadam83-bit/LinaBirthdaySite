@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday L7biba 💖</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+position:relative;
+background: linear-gradient(270deg,#ff6fbf,#ff4e88,#ff9eb5,#ffc0dd);
+background-size: 800% 800%;
+animation:gradientBG 15s ease infinite;
+color:white;
+text-align:center;
+}
+@keyframes gradientBG{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+.sparkle,.heart{position:absolute;font-size:20px;animation:float 6s linear infinite;opacity:0.8;}
+@keyframes float{0%{transform:translateY(100vh);}100%{transform:translateY(-10vh);}}
+.container{max-width:600px;padding:20px;position:relative;z-index:2;}
+.name{font-size:80px;font-weight:800;letter-spacing:5px;background:linear-gradient(90deg,#fff,#ffedf7,#ffe6fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:glow 2s infinite alternate;margin-bottom:20px;}
+@keyframes glow{from{text-shadow:0 0 15px white;}to{text-shadow:0 0 50px white;}}
+#countdown{font-size:40px;margin-top:20px;font-weight:600;}
+button{margin-top:30px;padding:15px 40px;font-size:20px;border:none;border-radius:40px;cursor:pointer;background:white;color:#ff4e88;display:none;transition:0.3s;}
+button:hover{transform:scale(1.1);}
+#surprise{display:none;margin-top:20px;animation:fade 1s ease;}
+.cake{font-size:100px;margin-top:10px;animation:bounce 1s infinite alternate;}
+.message{font-size:22px;margin-top:15px;line-height:1.6;font-weight:600;background: rgba(0,0,0,0.2);padding:15px;border-radius:15px;}
+.fullphrase{font-size:24px;font-weight:700;margin-top:20px;line-height:1.5;background: rgba(0,0,0,0.3);padding:20px;border-radius:15px;color:#fff;}
+@keyframes bounce{from{transform:translateY(0)}to{transform:translateY(-20px)}}
+@keyframes fade{from{opacity:0; transform:scale(0.7);}to{opacity:1; transform:scale(1)}}
+@media(max-width:600px){.name{font-size:60px;}#countdown{font-size:30px;}.message{font-size:18px;}button{font-size:18px;padding:12px 30px;}.fullphrase{font-size:18px;padding:15px;}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="name">LINA</div>
+<div id="countdown">5</div>
+<button id="btn" onclick="showSurprise()">Zidi Ba9i 💖</button>
+<div id="surprise">
+<div class="cake">🎂</div>
+<div class="message">
+🎉 Hbiba dyali rbi ykhlik liya dima fr7ana ! 💖<br>
+🌸 Inchallah had l3am ykon a7san t9dri dwzih! ✨<br>
+</div>
+<div class="fullphrase">
+💖 Hadi l7biba dyali! Happy Birthday l3o9ba l100ans inchallah, w n3chiha m3ak yarbi! A hbiba dyali kanbghik w knmot 3lik 💖
+</div>
+</div>
+</div>
+<audio id="music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" autoplay loop></audio>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script>
+let count=5;
+let countdown=document.getElementById("countdown");
+let timer=setInterval(()=>{
+count--;
+if(count>0){countdown.innerText=count;}
+else{
+clearInterval(timer);
+countdown.style.display="none";
+document.getElementById("btn").style.display="inline-block";
+}
+},1000);
+function showSurprise(){
+document.getElementById("btn").style.display="none";
+document.getElementById("surprise").style.display="block";
+confetti({particleCount:300,spread:180,origin:{y:0.6}});
+setInterval(()=>{
+let heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="💖";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(Math.random()*20+20)+"px";
+document.body.appendChild(heart);
+setTimeout(()=>heart.remove(),6000);
+},300);
+setInterval(()=>{
+let star=document.createElement("div");
+star.className="sparkle";
+star.innerHTML="✨";
+star.style.left=Math.random()*100+"vw";
+star.style.fontSize=(Math.random()*15+15)+"px";
+document.body.appendChild(star);
+setTimeout(()=>star.remove(),6000);
+},400);
+}
+</script>
+</body>
+</html>
